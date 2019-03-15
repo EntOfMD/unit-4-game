@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo|Noto+Sans');
+
+body {
+    padding-top: 5rem;
+    background-image: url('../images/background.jpg');
+    background-blend-mode: difference;
+    font-family: 'Arimo', sans-serif;
+}
+
+.container {
+    font-family: 'Noto Sans', sans-serif;
+}
