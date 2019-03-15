@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"
+        ></script>
+        <link rel="stylesheet" href="./assets/css/style.css" />
+        <title>Crytals Collector :: Ashell Fernando</title>
+    </head>
+    <body>
+        <div class="container jumbotron jumbotron-fluid rounded">
+            <div class="row">
+                <div
+                    id="game-title"
+                    class="col-md-12 text-center text-muted display-4 text- mb-4"
+                >
+                    Crystal Collecter
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="">
+                        <div class="container ">
+                            <h5>instructions</h5>
+                            <p class="text-center pb-5 px-5">
+                                <span>
+                                    You will be given a random number at the
+                                    start of the game. There are four crystals
+                                    below. By clicking on a crystal, you will
+                                    add a specific amount of points to your
+                                    total score. you win the game by matching
+                                    your total score to random number, you lose
+                                    the game if your total score goes above the
+                                    random number.
+                                </span>
+
+                                The value of each crystal is hidden from you
+                                until you click on it. Each time when the game
+                                starts, the game will change the values of each
+                                crystal.
+                            </p>
+
+                            <div class="row text-center">
+                                <div class="col-sm-3">red</div>
+                                <div class="col-sm-3">blue</div>
+                                <div class="col-md-3">yellow</div>
+                                <div class="col-md-3">green</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-info">Scores:</div>
+                        <div class="card-body">
+                            <h5 class="card-title text-secondary">
+                                Your Total score is:
+                                <span id="total_score"></span>
+                            </h5>
+                            <div class="row card-text">
+                                <div class="col-sm-6 text-success">
+                                    Wins:<span id="wins_ui"></span>
+                                </div>
+                                <div class="col-sm-6 text-danger">
+                                    Losses: <span id="losses_ui"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card bg-light mb-3">
+                        <div class="card-header text-right text-secondary">
+                            :: Values ::
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-secondary">
+                                Current Value:
+                            </h5>
+                            <p
+                                id="current_value"
+                                class="card-text text-primary h5"
+                            ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
