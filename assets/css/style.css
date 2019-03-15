@@ -10,3 +10,10 @@ body {
 .container {
     font-family: 'Noto Sans', sans-serif;
 }
+
+/* crystals */
+
+#blue_crystal {
+    width: 100px;
+    border-radius: 10%;
+}
