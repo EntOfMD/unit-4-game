@@ -76,6 +76,7 @@
                                     <button
                                         type="button"
                                         class="btn btn-danger crystal_shadow"
+                                        id="red_btn"
                                     >
                                         <img
                                             src="./assets/images/red_crystal.png"
@@ -88,6 +89,7 @@
                                     <button
                                         type="button"
                                         class="btn btn-primary crystal_shadow"
+                                        id="blue_btn"
                                     >
                                         <img
                                             id="blue_crystal"
@@ -100,6 +102,7 @@
                                     <button
                                         class="btn btn-warning crystal_shadow"
                                         type="button"
+                                        id="yellow_btn"
                                     >
                                         <img
                                             src="./assets/images/yellow_crystal.png"
@@ -111,6 +114,8 @@
                                 <div class="col-sm-auto">
                                     <button
                                         class="btn btn-success crystal_shadow"
+                                        type="button"
+                                        id="green_btn"
                                     >
                                         <img
                                             src="./assets/images/green_crystal.png"
@@ -145,10 +150,10 @@
                         <div class="card-body">
                             <div class="row card-text">
                                 <div class="col-sm-6 text-success">
-                                    Wins: <span id="wins_ui">none</span>
+                                    Wins: <span id="wins_ui"></span>
                                 </div>
                                 <div class="col-sm-6 text-danger">
-                                    Losses: <span id="losses_ui">none</span>
+                                    Losses: <span id="losses_ui"></span>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +173,6 @@
                                             id="current_value"
                                             class="card-text text-primary h5"
                                         >
-                                            Click a crystal to begin!
                                         </span>
                                     </h5>
                                 </div>
@@ -178,8 +182,7 @@
                                         <span
                                             id="total_score"
                                             class="text-primary"
-                                            >Click a crystal to begin!</span
-                                        >
+                                        ></span>
                                     </h5>
                                 </div>
                             </div>
