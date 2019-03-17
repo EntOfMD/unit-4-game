@@ -1,14 +1,18 @@
 'use strict';
-
-//it's too damn organized, DRY DRY DRY!!!
-
 //values that updates
 let values = {
     wins: 0,
     losses: 0,
     current_value: 0,
     titleArr: [],
-    goal: 0
+    goal: 0,
+
+    percentages: {
+        red: 0.25,
+        blue: 0.125,
+        yellow: 0.0625,
+        green: 0.45
+    }
 };
 
 //DOM iDs
@@ -108,6 +112,33 @@ var fx = {
         let goal = fx.randomNum(100);
         values.goal = goal;
         return goal;
+    },
+    randomQuotes: () => {
+        let quotes = [
+            'Stay a while, and listen!',
+            'Thank You Mario! But our princess is in another castle!',
+            'This is your fault. I’m going to kill you. And all the cake is gone. You don’t even care, do you?',
+            'If you can’t outplay them, outwork them  *hint hint* ;)',
+            'Champions keep playing until they get it right',
+            'When life gives you lemons, don’t make lemonade! Make life take the lemons back! Get mad! I don’t want your damn lemons! What am I supposed to do with these? Demand to see life’s manager',
+            'It’s super effective!',
+            'FINISH HIM!!',
+            'HADOUKEN!',
+            'Wakka wakka wakka',
+            'It’s time to kick ass and chew bubble gum…and I’m all outa gum',
+            'A hero need not speak. When he is gone, the world will speak for him',
+            'Play around! If you can win legit, try typing ;)'
+        ];
+
+        let qIndex = 0;
+        for (let i = 0; i < quotes.length; i++) {
+            window.setTimeout(() => {
+                $(DOMs.midP).text(quotes[qIndex]);
+                console.log(quotes[qIndex]);
+                qIndex++;
+            }, i * 10000);
+            qIndex = 0;
+        }
     }
 };
 
@@ -115,27 +146,33 @@ var fx = {
 //shit goes down from here on, top part is preparing for the fight~~
 $(function() {
     fx.appInit();
-    // $(DOMs.red).click
-    let red_value = values.goal / 4;
-    let blue_value = values.goal / 5;
-    let yellow_value = values.goal / 6;
-    let green_value = Math.floor(yellow_value / 2) + 1 * 5;
+    window.setTimeout(fx.randomQuotes, 2000);
+
+    //gets the values of keys
+    // for (let perc in values.percentages) {
+    //     console.log(values.percentages[perc]);
+    // }
+
+    let red_value = values.goal * values.percentages.red;
+    let blue_value = values.goal * values.percentages.blue;
+    let yellow_value = values.goal * values.percentages.yellow;
+    let green_value = values.goal * values.percentages.green;
 
     $(DOMs.red).click(function(e) {
         e.preventDefault();
-
-        console.log(red_value);
+        DOMs.currentValue.innerHTML += red_value.toFixed(2);
+        console.log(`${red_value.toFixed(2)}`);
     });
     $(DOMs.blue).click(function(e) {
         e.preventDefault();
-        console.log(blue_value);
+        console.log(blue_value.toFixed(2));
     });
     $(DOMs.yellow).click(function(e) {
         e.preventDefault();
-        console.log(yellow_value);
+        console.log(yellow_value.toFixed(2));
     });
     $(DOMs.green).click(function(e) {
         e.preventDefault();
-        console.log(green_value);
+        console.log(green_value.toFixed(2));
     });
 });
