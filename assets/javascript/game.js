@@ -1,4 +1,7 @@
 'use strict';
+
+// after finishing almost all of the page: OH LORD, I JUST REALIZED I DIDN'T WRITE THIS LIKE THE EXAMPLE SHOWN IN CLASS :o  (╯°□°）╯︵ ┻━┻   ¯\_(ツ)_/¯
+
 //values that updates
 let values = {
     wins: 0,
@@ -6,13 +9,8 @@ let values = {
     current_value: 0,
     titleArr: [],
     goal: 0,
-
-    percentages: {
-        red: 0.25,
-        blue: 0.125,
-        yellow: 0.0625,
-        green: 0.45
-    }
+    rIndex: 0,
+    prevGen: []
 };
 
 //DOM iDs
@@ -71,7 +69,7 @@ var fx = {
     changeRandomColor: () => {
         fx.getTitle();
         var colors = ['#8e0000', '#0866cc', '#d6cf04', '#0fc100']; //red, blue, yellow, green
-        let random = fx.randomNum(colors.length);
+        let random = fx.randomNum(0, colors.length);
 
         switch (random) {
             case 0:
@@ -90,6 +88,10 @@ var fx = {
                 console.log(`Title color: green`);
                 break;
 
+            case 4:
+                values.titleArr.forEach(p => {
+                    $(DOMs.title).addClass('text-muted');
+                });
             default:
                 console.log(random);
                 break;
@@ -102,14 +104,20 @@ var fx = {
         });
     },
 
-    randomNum: p => {
-        let generatedNumber = Math.floor(Math.random() * p);
-
-        return generatedNumber;
+    randomNum: (min, max) => {
+        let generatedNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        values.prevGen.pop(generatedNumber);
+        if (values.prevGen[values.rIndex - 1] === generatedNumber) {
+            generatedNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        } else {
+            values.prevGen.pop(generatedNumber);
+            values.rIndex++;
+            return generatedNumber;
+        }
     },
 
     playerStartGoal: () => {
-        let goal = fx.randomNum(100);
+        let goal = fx.randomNum(19, 120);
         values.goal = goal;
         return goal;
     },
@@ -134,7 +142,6 @@ var fx = {
         for (let i = 0; i < quotes.length; i++) {
             window.setTimeout(() => {
                 $(DOMs.midP).text(quotes[qIndex]);
-                console.log(quotes[qIndex]);
                 qIndex++;
             }, i * 10000);
             qIndex = 0;
@@ -147,32 +154,47 @@ var fx = {
 $(function() {
     fx.appInit();
     window.setTimeout(fx.randomQuotes, 2000);
+    let audio = document.createElement('audio');
+    audio.setAttribute('src', './assets/ArexBeat.ogg');
+    audio.play();
 
     //gets the values of keys
     // for (let perc in values.percentages) {
     //     console.log(values.percentages[perc]);
     // }
 
-    let red_value = values.goal * values.percentages.red;
-    let blue_value = values.goal * values.percentages.blue;
-    let yellow_value = values.goal * values.percentages.yellow;
-    let green_value = values.goal * values.percentages.green;
+    let red_value = fx.randomNum(1, 12);
+    let blue_value = fx.randomNum(1, 12);
+    let yellow_value = fx.randomNum(1, 12);
+    let green_value = fx.randomNum(1, 12);
 
     $(DOMs.red).click(function(e) {
         e.preventDefault();
-        DOMs.currentValue.innerHTML += red_value.toFixed(2);
-        console.log(`${red_value.toFixed(2)}`);
+
+        console.log(`${red_value}`);
     });
     $(DOMs.blue).click(function(e) {
         e.preventDefault();
-        console.log(blue_value.toFixed(2));
+        console.log((blue_value += blue_value));
     });
     $(DOMs.yellow).click(function(e) {
         e.preventDefault();
-        console.log(yellow_value.toFixed(2));
+        console.log(yellow_value);
     });
     $(DOMs.green).click(function(e) {
         e.preventDefault();
-        console.log(green_value.toFixed(2));
+        console.log(green_value);
     });
 });
+
+/* 
+ToDo:
+  * Display color_values to DOM
+  * Update current_value
+  * OPTIONAL - add audio
+  * Work on scores
+    *  Wins
+    * Losses
+  * implement win or lose logic
+
+*/
