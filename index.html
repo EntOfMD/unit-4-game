@@ -1,215 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-        />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <link
-            rel="stylesheet"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
-        />
-        <script
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"
-        ></script>
-        <script
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"
-        ></script>
-        <link rel="stylesheet" href="./assets/css/style.css" />
-        <title>Crytals Collector :: Ashell Fernando</title>
-    </head>
-    <body>
-        <div
-            class="container jumbotron jumbotron-fluid rounded shadow-lg bg-white "
-        >
-            <div class="row">
-                <div class="col-md-12 text-center display-4 mb-4">
-                    <span id="game-title"></span>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="">
-                        <div class="container ">
-                            <h5 class="font-weight-bold">
-                                instructions:
-                            </h5>
-                            <p class="text-center pt-2 px-2">
-                                You will be given a
-                                <mark>random number</mark> at the start of the
-                                game. There are four crystals below. By
-                                <mark>clicking on a crystal</mark> , you will
-                                add a specific amount of points to your total
-                                score. You
-                                <mark
-                                    >win the game by matching your total score
-                                    to random number</mark
-                                >, you
-                                <mark
-                                    >lose the game if your total score goes
-                                    above</mark
-                                >
-                                the random number.
-                            </p>
-                            <p class="text-center pt-2 px-2">
-                                The value of each crystal is hidden from you
-                                until you click on it. Each time when the game
-                                starts, the game will change the values of each
-                                crystal.
-                            </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Crytals Collector :: Ashell Fernando</title>
+  </head>
+  <body>
+    <div
+      class="container jumbotron jumbotron-fluid rounded shadow-lg bg-white "
+    >
+      <div class="row">
+        <div class="col-md-12 text-center display-4 mb-4">
+          <span id="game-title"></span>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="">
+            <div class="container ">
+              <h5 class="font-weight-bold">
+                instructions:
+              </h5>
+              <p class="text-center pt-2 px-2">
+                You will be given a
+                <mark>random number</mark> at the start of the game. There are
+                four crystals below. By <mark>clicking on a crystal</mark> , you
+                will add a specific amount of points to your total score. You
+                <mark
+                  >win the game by matching your total score to random
+                  number</mark
+                >, you
+                <mark>lose the game if your total score goes above</mark>
+                the random number.
+              </p>
+              <p class="text-center pt-2 px-2">
+                The value of each crystal is hidden from you until you click on
+                it. Each time when the game starts, the game will change the
+                values of each crystal.
+              </p>
 
-                            <div
-                                class="row justify-content-center ml-auto mr-auto"
-                            >
-                                <div class="col-sm-auto">
-                                    <button
-                                        type="button"
-                                        class="btn btn-danger crystal_shadow"
-                                        id="red_btn"
-                                    >
-                                        <img
-                                            src="./assets/images/red_crystal.png"
-                                            alt="red crystal"
-                                            id="red_crystal"
-                                        />
-                                    </button>
-                                </div>
-                                <div class="col-sm-auto">
-                                    <button
-                                        type="button"
-                                        class="btn btn-primary crystal_shadow"
-                                        id="blue_btn"
-                                    >
-                                        <img
-                                            id="blue_crystal"
-                                            src="./assets/images/blue_crystal.png"
-                                            alt=""
-                                        />
-                                    </button>
-                                </div>
-                                <div class="col-sm-auto">
-                                    <button
-                                        class="btn btn-warning crystal_shadow"
-                                        type="button"
-                                        id="yellow_btn"
-                                    >
-                                        <img
-                                            src="./assets/images/yellow_crystal.png"
-                                            alt="yellow crystal"
-                                            id="yellow_crystal"
-                                        />
-                                    </button>
-                                </div>
-                                <div class="col-sm-auto">
-                                    <button
-                                        class="btn btn-success crystal_shadow"
-                                        type="button"
-                                        id="green_btn"
-                                    >
-                                        <img
-                                            src="./assets/images/green_crystal.png"
-                                            alt="green crystal"
-                                            id="green_crystal"
-                                        />
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p
-                                        id="motiWords"
-                                        class="text-center h5 pt-4"
-                                    ></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <div class="row justify-content-center ml-auto mr-auto">
+                <div class="col-sm-auto">
+                  <button
+                    type="button"
+                    class="btn btn-danger crystal_shadow crystal"
+                    id="red_btn"
+                  >
+                    <img
+                      src="./assets/images/red_crystal.png"
+                      alt="red crystal"
+                      id="red_crystal"
+                    />
+                  </button>
+
+                  <div
+                    id="red-val-card"
+                    class="card-body border crystalValCard"
+                  >
+                    <p class="card-text">
+                      This holds a <span id="red_val"></span>
+                    </p>
+                  </div>
                 </div>
+                <div class="col-sm-auto">
+                  <button
+                    type="button"
+                    class="btn btn-primary crystal_shadow crystal"
+                    id="blue_btn"
+                  >
+                    <img
+                      id="blue_crystal"
+                      src="./assets/images/blue_crystal.png"
+                      alt=""
+                    />
+                  </button>
+                  <div
+                    id="blue-val-card"
+                    class="card-body border crystalValCard"
+                  >
+                    <p class="card-text">
+                      This holds a <span id="blue_val"></span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-auto">
+                  <button
+                    class="btn btn-warning crystal_shadow crystal"
+                    type="button"
+                    id="yellow_btn"
+                  >
+                    <img
+                      src="./assets/images/yellow_crystal.png"
+                      alt="yellow crystal"
+                      id="yellow_crystal"
+                    />
+                  </button>
+                  <div
+                    id="yellow-val-card"
+                    class="card-body border crystalValCard"
+                  >
+                    <p class="card-text">
+                      This holds a <span id="yellow_val"></span>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-sm-auto">
+                  <button
+                    class="btn btn-success crystal_shadow crystal"
+                    type="button"
+                    id="green_btn"
+                  >
+                    <img
+                      src="./assets/images/green_crystal.png"
+                      alt="green crystal"
+                      id="green_crystal"
+                    />
+                  </button>
+                  <div
+                    id="green-val-card"
+                    class="card-body border crystalValCard"
+                  >
+                    <p class="card-text">
+                      This holds a <span id="green_val"></span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <p id="motiWords" class="text-center h5 pt-4"></p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-        <div class="container ">
-            <div class="row justify-content-center ">
-                <div class="col-sm-6">
-                    <div class="card bg-light mb-3 pb-3 shadow-lg bg-white">
-                        <div class="card-header text-info">
-                            .: Scores :.
-                        </div>
-                        <div class="card-body">
-                            <div class="row card-text">
-                                <div class="col-sm-6 text-success">
-                                    Wins: <span id="wins_ui"></span>
-                                </div>
-                                <div class="col-sm-6 text-danger">
-                                    Losses: <span id="losses_ui"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card bg-light mb-3 shadow-lg bg-white">
-                        <div class="card-header text-info">
-                            .: Values :.
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-auto">
-                                    <h5 class="card-title text-secondary">
-                                        Current Roll:
-                                        <span
-                                            id="current_value"
-                                            class="card-text text-primary h5"
-                                        >
-                                        </span>
-                                    </h5>
-                                </div>
-                                <div class="col-sm-auto">
-                                    <h5 class="card-title text-secondary">
-                                        Goal:
-                                        <span
-                                            id="total_score"
-                                            class="text-primary"
-                                        ></span>
-                                    </h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card pshadow-lg bg-white my-3">
-                    <div class="card-body text-center">
-                        <span class="lead ">
-                            <a
-                                href="https://github.com/EntOfMD/unit-4-game"
-                                target="_blank"
-                            >
-                                <img
-                                    id="github-ico"
-                                    src="./assets/images/github-svg.png"
-                                    alt="github logo"
-                            /></a>
-                            Ashell Fernando &copy; 2019
-                        </span>
-                        <p class="small my-0">
-                            Special thanks to image owners &hearts;
-                        </p>
-                    </div>
-                </div>
+      </div>
+    </div>
+    <div class="container ">
+      <div class="row justify-content-center ">
+        <div class="col-sm-6">
+          <div class="card bg-light mb-3 pb-3 shadow-lg bg-white">
+            <div class="card-header text-info">
+              .: Scores :.
             </div>
+            <div class="card-body">
+              <div class="row card-text">
+                <div class="col-sm-6 text-success">
+                  Wins: <span id="wins_ui"></span>
+                </div>
+                <div class="col-sm-6 text-danger">
+                  Losses: <span id="losses_ui"></span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <script src="./assets/javascript/game.js"></script>
-    </body>
+        <div class="col-sm-6">
+          <div class="card bg-light mb-3 shadow-lg bg-white">
+            <div class="card-header text-info">
+              .: Values :.
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-auto">
+                  <h5 class="card-title text-secondary">
+                    Current Roll:
+                    <span id="current_value" class="card-text text-primary h5">
+                    </span>
+                  </h5>
+                </div>
+                <div class="col-sm-auto">
+                  <h5 class="card-title text-secondary">
+                    Goal:
+                    <span id="total_score" class="text-primary"></span>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card pshadow-lg bg-white my-3">
+          <div class="card-body text-center">
+            <span class="lead ">
+              <a href="https://github.com/EntOfMD/unit-4-game" target="_blank">
+                <img
+                  id="github-ico"
+                  src="./assets/images/github-svg.png"
+                  alt="github logo"
+              /></a>
+              Ashell Fernando &copy; 2019
+            </span>
+            <p class="small my-0">
+              Special thanks to content owners &hearts;
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/javascript/game.js"></script>
+  </body>
 </html>
