@@ -38,6 +38,7 @@ body {
     max-width: 135px;
     padding: 5px;
     display: none;
+    z-index: 9999;
 }
 .crystal_shadow {
     box-shadow: 5px 5px #444;

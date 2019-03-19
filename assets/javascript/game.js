@@ -1,6 +1,7 @@
 'use strict';
 
-// after finishing almost all of the page: OH LORD, I JUST REALIZED I DIDN'T WRITE THIS LIKE THE EXAMPLE SHOWN IN CLASS :o  (╯°□°）╯︵ ┻━┻   ¯\_(ツ)_/¯
+// after finishing almost all of the page: OH LORD, I JUST REALIZED I DIDN'T WRITE THIS LIKE THE EXAMPLE SHOWN IN CLASS (╯°□°）╯︵ ┻━┻
+//there was an attempt ¯\_(ツ)_/¯
 
 //values that updates
 let values = {
@@ -106,9 +107,11 @@ var fx = {
         }
 
         values.titleArr.map(letter => {
-            $(DOMs.title)
-                .css('color', colors[random])
-                .append(letter);
+            setTimeout(() => {
+                $(DOMs.title)
+                    .css('color', colors[random])
+                    .append(letter);
+            }, 200);
         });
     },
 
@@ -133,10 +136,10 @@ var fx = {
     randomQuotes: () => {
         let quotes = [
             'Stay a while, and listen!',
+            "Type 'help();' in Developer Console for Commands!",
+            'If you can’t outplay them, outwork them  *hint hint* ;)',
             'Thank You Mario! But our princess is in another castle!',
             'This is your fault. I’m going to kill you. And all the cake is gone. You don’t even care, do you?',
-            'If you can’t outplay them, outwork them  *hint hint* ;)',
-            'Champions keep playing until they get it right',
             'When life gives you lemons, don’t make lemonade! Make life take the lemons back! Get mad! I don’t want your damn lemons! What am I supposed to do with these? Demand to see life’s manager',
             'It’s super effective!',
             'FINISH HIM!!',
@@ -160,34 +163,46 @@ var fx = {
             qIndex = 0;
         }
     },
-    displayNumOnClick: (dom, val) => {
-        var i = 0;
-        let msg = `Congrats! You win!
-        Current Score: ${values.wins} `;
-        let speed = 50;
-        function winMsg() {
-            if (i < msg.length) {
-                $('#winner').text += msg.charAt(i);
-                i++;
-                setTimeout(winMsg, speed);
-            }
-        }
+    displayNumOnClick: (dom, val, card) => {
         let getVal = $(dom).click(e => {
             e.preventDefault();
             console.log(`${val}`);
+            $(card).text(`This has a ${val}`);
+            $(card).show();
+
+            setTimeout(() => {
+                $(card).hide();
+            }, 300);
+
+            var i = 0;
+            let delay = 42;
+            let msg = `Congrats! You win! \n
+            Current Score: Wins: ${values.wins + 1}
+            Losses: ${values.losses} `;
+            function winMsg() {
+                if (i < msg.length) {
+                    $('#winner').append(msg.charAt(i));
+                    i++;
+                    setTimeout(winMsg, delay);
+                }
+            }
+
             let value = (values.current_value += val);
             $('#current_value').html(`<h2>${value}</h2>`);
 
             //conditions for win or lose
             if (value > values.goal) {
-                winMsg();
                 values.losses++;
                 DOMs.losses.text(values.losses);
                 fx.gameReset();
             } else if (value === values.goal) {
-                winMsg();
+                value = 0;
                 values.wins++;
                 DOMs.wins.text(values.wins);
+                winMsg();
+                setTimeout(() => {
+                    $('#winner').hide();
+                }, 7000);
                 fx.gameReset();
             }
             return value;
@@ -219,11 +234,104 @@ var fx = {
     }
 };
 
+let testing = {
+    add: (key, val) => {
+        switch (key) {
+            case 'wins':
+                values.wins += val;
+                DOMs.wins.text(values.wins);
+                break;
+            case 'losses':
+                values.losses += val;
+                DOMs.losses.text(values.losses);
+                break;
+            case 'goal':
+                values.goal += val;
+                DOMs.goal.text(values.goal);
+                break;
+            case 'score':
+                values.current_value += val;
+                DOMs.currentValue.text(values.current_value);
+                break;
+
+            default:
+                console.log(`Can't find that key`);
+                break;
+        }
+    },
+    set: (key, val) => {
+        switch (key) {
+            case 'wins':
+                values.wins = val;
+                DOMs.wins.text(values.wins);
+                break;
+            case 'losses':
+                values.losses = val;
+                DOMs.losses.text(values.losses);
+                break;
+            case 'goal':
+                values.goal = val;
+                DOMs.goal.text(values.goal);
+                break;
+            case 'score':
+                values.current_value = val;
+                DOMs.currentValue.text(values.current_value);
+                break;
+
+            default:
+                console.log(`Can't find that key`);
+                break;
+        }
+    },
+    showValues: card => {
+        switch (card) {
+            case 'red':
+                $('#red-val-card').show();
+                break;
+            case 'blue':
+                $('#blue-val-card').show();
+                break;
+            case 'yellow':
+                $('#yellow-val-card').show();
+                break;
+            case 'green':
+                $('#green-val-card').show();
+                break;
+
+            default:
+                $('.crystalValCard ').show();
+                break;
+        }
+    }
+};
+
+let help = _ => {
+    console.log(`
+    *************************************
+                    COMMANDS
+    -------------------------------------
+    * testing.add(wins, losses, goal, current_score | value)
+        Adds stated value to the key. Key must be in 'quotations'
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    * testing.set(wins, losses, goal, current_score | value)
+        Sets the stated value to the key. Key must be in 'quotations'
+    sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+    * testing.showValues(red, blue, yellow, green, EMPTY to show all)
+        Shows the card under the button, revealing the value.
+            **NOTE: THE BUTTON MUST BE CLICKED ATLEAST ONCE!**
+    hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    *************************************
+                      END
+    -------------------------------------
+    `);
+    return `Have Fun!`;
+};
+
 //this is a shorthand version of $(document).ready
-//shit goes down from here on, top part is preparing for the fight~~
 $(function() {
     fx.appInit();
     window.setTimeout(fx.randomQuotes, 2000);
+    fx.playMusic();
 
     //gets the values of keys
     // for (let perc in values.percentages) {
@@ -235,22 +343,22 @@ $(function() {
     let yellow_value = fx.randomNum(1, 12);
     let green_value = fx.randomNum(1, 12);
 
-    fx.displayNumOnClick(DOMs.red, red_value);
-    fx.displayNumOnClick(DOMs.blue, blue_value);
-    fx.displayNumOnClick(DOMs.yellow, yellow_value);
-    fx.displayNumOnClick(DOMs.green, green_value);
+    fx.displayNumOnClick(DOMs.red, red_value, '#red-val-card');
+    fx.displayNumOnClick(DOMs.blue, blue_value, '#blue-val-card');
+    fx.displayNumOnClick(DOMs.yellow, yellow_value, '#yellow-val-card');
+    fx.displayNumOnClick(DOMs.green, green_value, '#green-val-card');
 
     // i may have bitten more than I can chew.. see fx.displayNumOnClick
 });
 
 /* 
 ToDo:
-* Display color_values to DOM
-* Update current_value
-* OPTIONAL - add audio
-* Work on scores
+* Display color_values to DOM -done
+* Update current_value -done
+* OPTIONAL - add audio - done
+* Work on scores -done
 *  Wins
 * Losses
-* implement win or lose logic
+* implement win or lose logic -done
 
 */
