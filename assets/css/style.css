@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Arimo|Noto+Sans');
 
 body {
-  padding-top: 2rem;
-  background-image: url('../images/background.jpg');
-  background-blend-mode: difference;
-  font-family: 'Arimo', sans-serif;
+    padding-top: 2rem;
+    background-image: url('../images/background.jpg');
+    background-blend-mode: difference;
+    font-family: 'Arimo', sans-serif;
 }
 
 .container {
-  font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 /* .footer {
@@ -18,38 +18,31 @@ body {
 } */
 
 #github-ico {
-  height: 20px;
+    height: 20px;
 }
 /* crystals */
-
-#blue_crystal {
-  width: 100px;
-  border-radius: 10%;
+/* I know I could've added classes, but meh.. spesghetti code  */
+#blue_crystal,
+#yellow_crystal,
+#green_crystal {
+    width: 100px;
 }
 
 #red_crystal {
-  width: 100px;
-  height: 100px;
-  border-radius: 10%;
-}
-
-#yellow_crystal {
-  width: 100px;
-}
-
-#green_crystal {
-  width: 100px;
+    width: 100px;
+    height: 100px;
 }
 
 .crystalValCard {
-  margin: 10px 0 10px 5px;
-  max-width: 135px;
-  padding: 5px;
-  display: none;
+    margin: 10px 0 10px 5px;
+    max-width: 135px;
+    padding: 5px;
+    display: none;
 }
 .crystal_shadow {
-  box-shadow: 5px 5px #444;
-  margin: 5px;
+    box-shadow: 5px 5px #444;
+    margin: 5px;
+    border-radius: 10%;
 }
 
 /* media */
