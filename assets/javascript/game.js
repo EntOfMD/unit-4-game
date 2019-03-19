@@ -168,7 +168,7 @@ var fx = {
             e.preventDefault();
             console.log(`${val}`);
             $(card).text(`This has a ${val}`);
-            $(card).show();
+            // $(card).show();
 
             setTimeout(() => {
                 $(card).hide();
@@ -258,6 +258,7 @@ let testing = {
                 console.log(`Can't find that key`);
                 break;
         }
+        return `added ${val} to ${key}`;
     },
     set: (key, val) => {
         switch (key) {
@@ -282,6 +283,7 @@ let testing = {
                 console.log(`Can't find that key`);
                 break;
         }
+        return `${key} set with ${val}`;
     },
     showValues: card => {
         switch (card) {
@@ -302,14 +304,15 @@ let testing = {
                 $('.crystalValCard ').show();
                 break;
         }
+        return `Showing ${card ? card : 'all'}`;
     }
 };
 
 let help = _ => {
     console.log(`
-    *************************************
-                    COMMANDS
-    -------------------------------------
+    ***********************************************************************
+                                    COMMANDS
+    -----------------------------------------------------------------------
     * testing.add(wins, losses, goal, current_score | value)
         Adds stated value to the key. Key must be in 'quotations'
     aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
@@ -320,11 +323,11 @@ let help = _ => {
         Shows the card under the button, revealing the value.
             **NOTE: THE BUTTON MUST BE CLICKED ATLEAST ONCE!**
     hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-    *************************************
-                      END
-    -------------------------------------
+    ------------------------------------------------------------------------
+                                        END
+    ************************************************************************
     `);
-    return `Have Fun!`;
+    return `Winning is good, but most importantly, have fun! It's a journey, not a race :)`;
 };
 
 //this is a shorthand version of $(document).ready
